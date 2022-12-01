@@ -11,3 +11,11 @@ def main():
     # gridfs
     fs_videos = gridfs.GridFS(db_videos)
     fs_mp3s = gridfs.GridFS(db_mp3s)
+
+    # rabbitmq
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host="rabbitmq"))
+    channel = connection.channel()
+
+    channel.basic_consume(
+        queue=os.environ.get("VIDEO_QUEUE"), on_message_callback=callback
+    )
