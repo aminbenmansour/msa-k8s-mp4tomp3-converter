@@ -27,3 +27,15 @@ def main():
     channel.basic_consume(
         queue=os.environ.get("VIDEO_QUEUE"), on_message_callback=callback
     )
+
+    print("Waiting for messages. To exit press CTRL+C")
+
+if __name__ == "__main__":
+    try:
+        main()
+    except:
+        print("Interrupted")
+        try:
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)
