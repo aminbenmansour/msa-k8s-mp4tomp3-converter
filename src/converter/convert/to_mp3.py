@@ -14,3 +14,14 @@ def start(message, fs_videos, fs_mp3s, channel):
     # create audio from temp video file
     audio = moviepy.editor.VideoFileClip(tf.name).audio
     tf.close()
+
+    # write video to the file
+    tf_path = tempfile.gettempdir() + f"/{message['video_fid']}.mp3"
+    audio.write_audiofile(tf_path)
+
+    # save file to mongo
+    f = open(tf_path, "rb")
+    data = f.read()
+    fid = fs_mp3s.put(data)
+    f.close()
+    os.remove(tf_path)
