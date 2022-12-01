@@ -11,7 +11,6 @@ spec:
     metadata:
       labels:
         app: rabbitmq
-
     spec:
       containers:
         - name: rabbitmq
@@ -22,7 +21,7 @@ spec:
               containerPort: 15672
             - name: amqp
               protocol: TCP
-              containerPort: 5762
+              containerPort: 5672
           envFrom:
             - configMapRef:
                 name: rabbitmq-configmap
@@ -35,5 +34,3 @@ spec:
         - name: rabbitmq-volume
           persistentVolumeClaim:
             claimName: rabbitmq-pvc
-            
-

@@ -16,7 +16,7 @@ def upload(f, fs, channel, access):
     try:
         channel.basic_publish(
             exchange="",
-            routing_key="videp",
+            routing_key="video",
             body=json.dumps(message),
             properties=pika.BasicProperties(
                 delivery_mode=pika.spec.PERSISTANT_DELIVERY_MODE # persisting msgs to queue for pods life hooks
