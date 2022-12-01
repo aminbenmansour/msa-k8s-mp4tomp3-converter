@@ -10,10 +10,11 @@ spec:
   rules:
     - host: mp3converter.com
       http:
-        path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: gateway
-            port:
-              number: 8080
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gateway
+                port:
+                  number: 8080
