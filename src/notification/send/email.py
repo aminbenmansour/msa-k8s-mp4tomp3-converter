@@ -22,5 +22,6 @@ def notification(message):
         session.quit()
         print("Mail sent")
 
-    except:
-        pass
+    except Exception as err:
+        print(err)
+        return err
