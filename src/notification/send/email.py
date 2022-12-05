@@ -9,5 +9,10 @@ def notification(message):
         sender_password = os.environ["GMAIL_PASSWORD"]
         receiver_address = message["username"]
 
+        msg = EmailMessage()
+        msg.set_content(f"mp3 file id: {mp3_fid} is now ready!")
+        msg["Subject"] = "MP3 Download"
+        msg["FROM"] = sender_address
+        msg["TO"] = receiver_address
     except:
         pass
