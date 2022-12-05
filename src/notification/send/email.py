@@ -14,5 +14,13 @@ def notification(message):
         msg["Subject"] = "MP3 Download"
         msg["FROM"] = sender_address
         msg["TO"] = receiver_address
+
+        session = smtplib.SMTP("smtp.gmail.com")
+        session.starttls()
+        session.login(sender_address, sender_password)
+        session.send_message(msg, sender_address, receiver_address)
+        session.quit()
+        print("Mail sent")
+
     except:
         pass
