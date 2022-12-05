@@ -29,9 +29,9 @@ def login():
 @server.route("/upload", methods=["POST"])
 def upload():
     access, err = validate.token(request)
-
+    if err:
+        return err
     access = json.loads(access)
-
     if access["admin"]:
         if len(request.files) != 1:
             return "exactly 1 file required", 400
@@ -48,7 +48,16 @@ def upload():
 
 @server.route("/download", methods=["GET"])
 def download():
-    pass
+    access, err = validate.token(request)
+    if err:
+        return err         
+    access = json.loads(access)
+    if access["admin"]:
+        pass
+    else:
+        pass
+
+    return "not authorized", 401
 
 
 if __name__ == "__main__":
