@@ -3,6 +3,11 @@ Building a service that mimics the behaviour of online services to convert mp4/v
 
 The application follows a modern microservice architechture orchestrated by **kubernetes**.
 
+## Architecture
+The following diagram highlights the architecture of the application as well as its lifecycle generating an mp3 file 
+
+![MSA architecture for converting file](https://user-images.githubusercontent.com/50111205/209007685-9bd6eb52-10d1-4831-a554-2ca0a59f6acc.png)
+
 ## Usage
 make sure you have the following requirements installed
 * python
