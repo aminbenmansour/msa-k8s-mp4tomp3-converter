@@ -1,4 +1,7 @@
 # msa-k8s-mp4tomp3-converter
+Building a service that mimics the behaviour of online services to convert mp4/video files to mp3/audio files. Files are downloaded when user in authenticated.
+
+The application follows a modern microservice architechture orchestrated by **kubernetes**.
 
 ## Usage
 make sure you have the following requirements installed
